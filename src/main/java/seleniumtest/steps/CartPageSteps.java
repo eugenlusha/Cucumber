@@ -1,5 +1,6 @@
 package seleniumtest.steps;
 
+import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import seleniumtest.nopCommerce.CartPage;
@@ -19,10 +20,7 @@ public class CartPageSteps {
         cartPageService.verifySumOfProductsIsCorrect();
     }
 
-    @And("^we check if the cart action buttons are displayed$")
-    public void weCheckIfTheCartActionButtonsAreDisplayed() {
-         cartPageService.verifyButtonsAreShown();
-    }
+
 
     @And("^we delete the first product in cart while verifying the product was deleted$")
     public void weDeleteTheFirstProductInCart() {
@@ -37,5 +35,22 @@ public class CartPageSteps {
     @Then("^we verify cart is empty$")
     public void weVerifyCartIsEmpty() {
          cartPageService.verifyCartIsEmpty();
+    }
+
+    @And("^then we check if the buttons below are shown$")
+    public void thenWeCheckIfTheButtonsBelowAreShown(DataTable dataTable) {
+         for(int i=0;i<dataTable.raw().get(0).size();i++){
+             switch ((dataTable.raw().get(0).get(i))){
+                 case "Update Cart":
+                     cartPage.verifyUpdateShoppingCartButtonIsShown();
+                     break;
+                 case "Continue Shopping":
+                     cartPage.verifyContinueShoppingButtonButtonIsShown();
+                     break;
+                 case "Estimate shipping":
+                     cartPage.verifyEstimateShippingButtonButtonIsShown();
+                     break;
+             }
+         }
     }
 }

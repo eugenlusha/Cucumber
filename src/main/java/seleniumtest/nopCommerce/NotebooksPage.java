@@ -140,11 +140,13 @@ public class NotebooksPage {
           try {
                helpers.clickElement(addProductToWishlistButtonList.get(position - 1));
                helpers.waitUntilElementIsVisible(addingToWishlistOrCartSuccessNotification);
-               Thread.sleep(3000);
+               //helpers.assertElementHasText(addingToWishlistOrCartSuccessNotification,Constants.addedToWishlistSuccessMessage);
+               //Im using sleep here because there is an error with the wait until element is invisible
+               Thread.sleep(1000);
           }catch (Exception e){
 
           }
-          //helpers.assertElementHasText(addingToWishlistOrCartSuccessNotification,Constants.addedToWishlistSuccessMessage);
+
           //helpers.waitUntilElementIsInvisible(addingToWishlistOrCartSuccessNotification);
      }
 
@@ -152,11 +154,13 @@ public class NotebooksPage {
           try {
                helpers.clickElement(addProductToShoppingCartButtonList.get(position - 1));
                helpers.waitUntilElementIsVisible(addingToWishlistOrCartSuccessNotification);
-               Thread.sleep(3000);
+               //helpers.assertElementHasText(addingToWishlistOrCartSuccessNotification,Constants.addedToCartSuccessMessage);
+               //Im using sleep here because there is an error with the wait until element is invisible
+               Thread.sleep(1000);
           }catch (Exception e){
 
           }
-          //helpers.assertElementHasText(addingToWishlistOrCartSuccessNotification,Constants.addedToCartSuccessMessage);
+
           //helpers.waitUntilElementIsInvisible(addingToWishlistOrCartSuccessNotification);
      }
 

@@ -18,13 +18,13 @@ public class NotebooksPageSteps {
         notebooksPage=new NotebooksPage(WebDriverFactory.getInstance().getDriver());
     }
 
-    @And ("^we choose to show (.+?) products per page$")
+    @And ("^we choose to show '(.+?)' products per page$")
     public void chooseNrOrProductsPerPage(String nr){
         notebooksPageService.selectNumberOfProductsToBeShown(nr);
     }
 
     //    per int (\\d+)
-    @Then("^we verify (\\d+) products are shown$")
+    @Then("^we verify '(\\d+)' products are shown$")
     public void weVerifyProductsAreShown(int nr) {
         notebooksPageService.verifyNumberOfDisplayedProductsIsCorrect(nr);
     }
@@ -64,7 +64,7 @@ public class NotebooksPageSteps {
     }
 
 
-    @Then("^we verify number of products added to cart is (\\d+)$")
+    @Then("^we verify number of products added to cart is '(\\d+)'$")
     public void weVerifyNumberOfProductsAddedToCartIs(int nr) {
         notebooksPageService.verifyNumberOfProductsInCart(nr);
         try{
@@ -74,7 +74,7 @@ public class NotebooksPageSteps {
         }
     }
 
-    @Then("^we verify number of products added to wishlist is (\\d+)$")
+    @Then("^we verify number of products added to wishlist is '(\\d+)'$")
     public void weVerifyNumberOfProductsAddedToWishlistIs(int nr) {
         notebooksPageService.verifyNumberOfProductsInWishList(nr);
     }

@@ -32,7 +32,7 @@ public class MainPageSteps {
 
     }
 
-    @Then("^we navigate to (.+?) page$")
+    @Then("^we navigate to '(.+?)' page$")
     public void weNavigateToPage(String str) {
 
         switch (str){
@@ -54,7 +54,7 @@ public class MainPageSteps {
         }
     }
 
-    @Then ("^we check if the navigation to (.+?) page was successful$")
+    @Then ("^we check if the navigation to '(.+?)' page was successful$")
     public void checkIfNavigationToPageWasSuccessful(String page){
         switch (page){
             case "Register":
